@@ -9,7 +9,7 @@ showNotes();
 
 function updateStorage() {
     localStorage.setItem("notes", notesContainer.innerHTML)
-} 
+}
 
 
 createBtn.addEventListener("click", () => {
@@ -21,14 +21,14 @@ createBtn.addEventListener("click", () => {
     notesContainer.appendChild(inputBox).appendChild(img);
 })
 
-notesContainer.addEventListener('click', function(e) {
-    if(e.target.tagName === "IMG") {
+notesContainer.addEventListener('click', function (e) {
+    if (e.target.tagName === "IMG") {
         e.target.parentElement.remove();
         updateStorage();
-    } else if(e.target.tagName === "P") {
+    } else if (e.target.tagName === "P") {
         notes = document.querySelectorAll(".input-box")
         notes.forEach(nt => {
-            nt.onkeyup = function() {
+            nt.onkeyup = function () {
                 updateStorage();
             }
         })
@@ -36,7 +36,7 @@ notesContainer.addEventListener('click', function(e) {
 })
 
 document.addEventListener('keyup', event => {
-    if(event.key === "Enter") {
+    if (event.key === "Enter") {
         document.execCommand('insetLineBreak');
         event.preventDefault();
     }
